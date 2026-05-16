@@ -1,0 +1,247 @@
+body {
+
+    background-color: black;
+
+    color: #888;
+
+    font-family: 'Courier New', monospace;
+
+    margin: 0;
+
+    padding: 40px;
+
+    overflow-x: hidden;
+
+}
+
+/* EFECTO MONITOR */
+
+body::before {
+
+    content: "";
+
+    position: fixed;
+
+    width: 100%;
+
+    height: 100%;
+
+    background:
+        repeating-linear-gradient(
+            to bottom,
+            rgba(255,255,255,0.03),
+            rgba(255,255,255,0.03) 1px,
+            transparent 1px,
+            transparent 2px
+        );
+
+    pointer-events: none;
+
+}
+
+/* CONTENEDOR */
+
+.container {
+
+    max-width: 1400px;
+
+    margin: auto;
+
+    text-align: center;
+
+}
+
+/* TÍTULO */
+
+h1 {
+
+    color: #777;
+    text-shadow: 0 0 8px rgba(255,255,255,0.15);
+
+    text-align: center;
+
+    letter-spacing: 18px;
+
+    font-size: 60px;
+
+    font-weight: bold;
+
+    margin-top: 20px;
+
+    margin-bottom: 60px;
+
+    opacity: 0.5;
+
+    animation: respirarTitulo 4s infinite;
+
+}
+
+@keyframes respirarTitulo {
+
+    0% {
+
+        opacity: 0.2;
+
+    }
+
+    50% {
+
+        opacity: 0.7;
+
+    }
+
+    100% {
+
+        opacity: 0.2;
+
+    }
+
+}
+
+/* TEXTO */
+
+.story {
+
+    font-size: 15px;
+
+    line-height: 2;
+
+    margin-top: 40px;
+
+    margin-bottom: 80px;
+
+    min-height: 350px;
+
+    white-space: pre-line;
+
+    letter-spacing: 1px;
+
+}
+
+/* CURSOR */
+
+.story::after {
+
+    content: "_";
+
+    animation: blink 1s infinite;
+
+}
+
+@keyframes blink {
+
+    50% {
+
+        opacity: 0;
+
+    }
+
+}
+
+/* GRID */
+
+.grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(5, 180px);
+
+    justify-content: center;
+
+    gap: 25px;
+
+    opacity: 0;
+
+    transition: opacity 2s;
+
+}
+
+.showGrid {
+
+    opacity: 1;
+
+}
+
+/* IMÁGENES */
+
+.grid img {
+
+    width: 180px;
+
+    height: 180px;
+
+    object-fit: contain;
+
+    filter: invert(1) grayscale(100%);
+
+    opacity: 0.8;
+
+    transition: 0.4s;
+
+    animation: breathing 4s infinite;
+
+}
+
+.grid img:hover {
+
+    opacity: 1;
+
+    transform: scale(1.05);
+
+}
+
+@keyframes breathing {
+
+    0% {
+
+        opacity: 0.7;
+
+    }
+
+    50% {
+
+        opacity: 1;
+
+    }
+
+    100% {
+
+        opacity: 0.7;
+
+    }
+
+}
+
+/* ÁRBOL */
+
+#tree {
+
+    width: 260px;
+
+    margin-top: 80px;
+
+    opacity: 0;
+
+    transition: 2s;
+
+    filter: invert(1) grayscale(100%);
+
+    cursor: pointer;
+
+}
+
+.showTree {
+
+    opacity: 1 !important;
+
+}
+
+/* GLITCH */
+
+body.glitch {
+
+    transform: translateX(2px);
+
+    opacity: 0.95;
+
+}
